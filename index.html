@@ -52,8 +52,26 @@
 				<img src='<?js= $("me").pictureUrl ?>' />
 			</div>
 		</div>
-
-
+		
+		
+		<?js for (var i = 0; i < $("me").educations._total; i++) { ?>
+			<?js var education = $("me").educations.values[i]; ?>
+			
+			<div class="row">
+				<div class="col-md-8">
+		    		<h1><?js= education.schoolName ?> <br />
+						<small> <?js= education.degree ?> </small>
+					</h1>
+					<p>
+						<?js= education.notes.replace(/\n/g, '<br />') ?>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<?js= education.startDate.year ?> - <?js= education.endDate.year ?>
+				</div>
+			</div>
+		<?js } ?>
+		
 		
 		
 	</script>
