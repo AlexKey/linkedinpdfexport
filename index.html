@@ -14,8 +14,7 @@
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 
-   <!-- Optional theme -->
-   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css" />
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,7 +35,9 @@
 		specialties,
 		pictureUrl,
 		positions,
-		educations">
+		educations,
+		testScores,
+		skills">
 		
 		<h1><?js= $("me").firstName ?> <?js= $("me").lastName ?></h1>
 		
@@ -49,7 +50,22 @@
 				</p>
 			</div>
 			<div class="col-md-4">
-				<img src='<?js= $("me").pictureUrl ?>' />
+				<img src='http://www.gravatar.com/avatar/add11e55f296bf74058d1d6b90d1a58b.jpg?s=250' />
+			</div>
+		</div>
+		
+		
+		<div class="row">
+			<div class="col-md-4"><h1>Skills</h1></div>
+			<div class="col-md-8">
+			<?js for (var i = 0; i < $("me").skills._total; i++) { ?>
+				<?js var skill = $("me").skills.values[i]; ?>
+				<div class="col-md-4" style="padding:10px;">
+					
+					<?js= skill.skill.name ?>
+				</div>
+		
+			<?js } ?>
 			</div>
 		</div>
 		
@@ -101,6 +117,26 @@
 			</div>
 			<div class="col-md-2">
 				<?js= education.startDate ? education.startDate.year : '' ?> - <?js= education.endDate ? education.endDate.year : '' ?>
+			</div>
+		<?js } ?>
+		</div>
+		
+		
+		<div class="row">
+			<div class="col-md-4"><h1>Test Scores</h1></div>
+		<?js for (var i = 0; i < $("me").testScores._total; i++) { ?>
+			<?js var testScore = $("me").testScores.values[i]; ?>
+			
+			<?js if(i == 0) { ?>
+			<div class="col-md-6">
+			<?js } else { ?>
+			<div class="col-md-6 col-md-offset-4">
+			<?js } ?>
+			
+	    		<h2>
+					<?js= testScore.name ?> <br />
+					<small><?js= testScore.score ?></small>
+				</h2>
 			</div>
 		<?js } ?>
 		</div>
