@@ -53,25 +53,57 @@
 			</div>
 		</div>
 		
+		<div class="row">
+			<div class="col-md-4"><h1>Experiance</h1></div>
+			<?js for (var i = 0; i < $("me").positions._total; i++) { ?>
+				<?js var position = $("me").positions.values[i]; ?>
+				
+				<?js if(i == 0) { ?>
+				<div class="col-md-6">
+				<?js } else { ?>
+				<div class="col-md-6 col-md-offset-4">
+				<?js } ?>
+				
+		    		<h2>
+						<?js=  position.title?> <br />
+						<small> <?js= position.company.name ?> </small>
+					</h2>
+					<p>
+						<?js= position.summary.replace(/\n/g, '<br />') ?>
+					</p>
+				</div>
+				<div class="col-md-2">
+					<?js= position.startDate ? position.startDate.year : '' ?> - <?js= position.endDate ? position.endDate.year : '' ?>
+				</div>
 		
+			<?js } ?>
+		</div>
+		
+		
+		<div class="row">
+			<div class="col-md-4"><h1>Education</h1></div>
 		<?js for (var i = 0; i < $("me").educations._total; i++) { ?>
 			<?js var education = $("me").educations.values[i]; ?>
 			
-			<div class="row">
-				<div class="col-md-8">
-		    		<h1><?js= education.schoolName ?> <br />
-						<small> <?js= education.degree ?> </small>
-					</h1>
-					<p>
-						<?js= education.notes.replace(/\n/g, '<br />') ?>
-					</p>
-				</div>
-				<div class="col-md-4">
-					<?js= education.startDate.year ?> - <?js= education.endDate.year ?>
-				</div>
+			<?js if(i == 0) { ?>
+			<div class="col-md-6">
+			<?js } else { ?>
+			<div class="col-md-6 col-md-offset-4">
+			<?js } ?>
+			
+	    		<h2>
+					<?js= education.schoolName ?> <br />
+					<small> <?js= education.degree ?> </small>
+				</h2>
+				<p>
+					<?js= education.notes.replace(/\n/g, '<br />') ?>
+				</p>
+			</div>
+			<div class="col-md-2">
+				<?js= education.startDate ? education.startDate.year : '' ?> - <?js= education.endDate ? education.endDate.year : '' ?>
 			</div>
 		<?js } ?>
-		
+		</div>
 		
 		
 	</script>
