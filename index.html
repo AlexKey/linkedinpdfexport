@@ -23,6 +23,28 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+		
+		<style>
+		.row {
+			border-top: 1px solid #4d4d4d;
+			padding-top:10px;
+			margin-top:10px;
+		}
+		
+		.row h1, .row h2 {
+			padding-top:0;
+			margin-top:0;
+			font-family: Georgia, "Times New Roman", Times, serif;
+			vertical-align:top;
+		}
+		
+		.block {
+			border-left: 1px solid #4d4d4d;
+			margin-bottom:30px;
+			padding-left:20px;
+			
+		}
+		</style>
   </head>
   <body>
 	<div class="container">
@@ -50,7 +72,7 @@
 				</p>
 			</div>
 			<div class="col-md-4">
-				<img src='http://www.gravatar.com/avatar/add11e55f296bf74058d1d6b90d1a58b.jpg?s=250' />
+				<img src='http://www.gravatar.com/avatar/add11e55f296bf74058d1d6b90d1a58b.jpg?s=275' />
 			</div>
 		</div>
 		
@@ -69,15 +91,15 @@
 			</div>
 		</div>
 		
-		<div class="row">
+		<section class="row">
 			<div class="col-md-4"><h1>Experiance</h1></div>
 			<?js for (var i = 0; i < $("me").positions._total; i++) { ?>
 				<?js var position = $("me").positions.values[i]; ?>
 				
 				<?js if(i == 0) { ?>
-				<div class="col-md-6">
+				<div class="col-md-6 block">
 				<?js } else { ?>
-				<div class="col-md-6 col-md-offset-4">
+				<div class="col-md-6 col-md-offset-4 block">
 				<?js } ?>
 				
 		    		<h2>
@@ -93,7 +115,7 @@
 				</div>
 		
 			<?js } ?>
-		</div>
+		</section>
 		
 		
 		<div class="row">
@@ -102,9 +124,9 @@
 			<?js var education = $("me").educations.values[i]; ?>
 			
 			<?js if(i == 0) { ?>
-			<div class="col-md-6">
+			<div class="col-md-6 block">
 			<?js } else { ?>
-			<div class="col-md-6 col-md-offset-4">
+			<div class="col-md-6 col-md-offset-4 block">
 			<?js } ?>
 			
 	    		<h2>
